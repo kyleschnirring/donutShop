@@ -42,14 +42,14 @@
 
         <script>
         var counter = 0;
-        var donutShopNames = ['Downtown', 'CapitalHill', 'SouthLakeUnion', 'Wedgewood', 'Ballard'];
 
         var DonutMaster = function(){
           this.donutShopLocations = [];
+          this.donutShopNames = ['Downtown', 'CapitalHill', 'SouthLakeUnion', 'Wedgewood', 'Ballard'];
 
           this.addShop = function(newLocation, minCustPerHour, maxCustPerHour, averageDonutsPerCust){
             var newShop = newLocation;
-            donutShopNames.push(newShop);
+            this.donutShopNames.push(newShop);
 
             var newlyCreatedShop = new DonutShop(minCustPerHour, maxCustPerHour, averageDonutsPerCust);
             this.donutShopLocations.push(newlyCreatedShop);
@@ -58,7 +58,7 @@
           this.generateList = function(){
             for (var i = 0; i < this.donutShopLocations.length; i++){
 
-              console.log(donutShopNames[i]);
+              console.log(this.donutShopNames[i]);
               this.donutShopLocations[i].getDonutsPerHour();
               this.donutShopLocations[i].getDonutsPerDay();
             }
@@ -75,7 +75,7 @@
               var cell5 = row.insertCell(4);
               var cell6 = row.insertCell(5);
 
-              cell1.innerHTML = donutShopNames[i];
+              cell1.innerHTML = this.donutShopNames[i];
               cell2.innerHTML = this.donutShopLocations[i].minCustPerHour;
               cell3.innerHTML = this.donutShopLocations[i].maxCustPerHour;
               cell4.innerHTML = this.donutShopLocations[i].averageDonutsPerCust;
@@ -136,7 +136,7 @@
             this.newPlace = new DonutShop(this.minCustPerHour,this.maxCustPerHour,this.averageDonutsPerCust);
             this.donutsAnHour = this.newPlace.getDonutsPerHour();
             this.donutsADay = this.newPlace.getDonutsPerDay();
-
+            //creating new table rows and filling them in
             this.createNewLine = function(){
               var table = document.getElementById('myTable');
               var row = table.insertRow(1);
@@ -154,7 +154,7 @@
               cell5.innerHTML = this.donutsAnHour;
               cell6.innerHTML = this.donutsADay;
             }
-            /*
+            /* I have no idea what I was doing with this but it might be important
             this.addInfo = function(elName, donutsAnHour, donutsADay){
               document.getElementById('firstShopName').innerHTML = this.elName;
               document.getElementById('firstMinCustPerHour').innerHTML = document.getElementById('newMinCustPerHour').value;
