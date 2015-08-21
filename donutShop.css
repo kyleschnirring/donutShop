@@ -1,80 +1,80 @@
-      td{
-        font-weight: bolder;
-        text-align: center;
-        border-spacing: 1px;
-      }
+  td{
+  font-weight: bolder;
+  text-align: center;
+  border-spacing: 1px;
+}
 
-      body{
-        background-color: #EFECEC;
-      }
+  body{
+  background-color: #EFECEC;
+}
 
-      table{
-        border-color: #5A087F;
-        border:2px;
-        text-align: center;
-      }
+  table{
+  border-color: #5A087F;
+  border:2px;
+  text-align: center;
+}
 
-      h1{
-        color: #EF0337;
-        text-align: center;
-      }
+  h1{
+  color: #EF0337;
+  text-align: center;
+  }
 
-      h3{
-        color: white;
-        text-align: center;
-      }
+  h3{
+  color: white;
+  text-align: center;
+}
 
-      p{
-        color: white;
-      }
+  p{
+  color: white;
+}
 
-      aside{
-        float: left;
-        background-color: #EF0337;
-        margin: 20px;
-        padding: 15px;
-        border-radius: 15px;
-      }
+  aside{
+  float: left;
+  background-color: #EF0337;
+  margin: 20px;
+  padding: 15px;
+  border-radius: 15px;
+}
 
-      nav{
-        padding:20px;
-      }
+  nav{
+  padding:20px;
+}
 
-      section{
-        background-color: white;
-        border-radius: 15px;
-        padding: 20px;
-        width: 1050px;
-      }
+  section {
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  width: 1050px;
+}
 
-      #addButton{
-        margin-right: 20px;
-        height: 50px;
-        width: 180px;
-        color: white;
-        background-color: #5A087F;
-        border-color: white;
-        font-size: 16px;
-        padding-right: 10px;
-        border-radius: 10px;
+  #addButton{
+  margin-right: 20px;
+  height: 50px;
+  width: 180px;
+  color: white;
+  background-color: #5A087F;
+  border-color: white;
+  font-size: 16px;
+  padding-right: 10px;
+  border-radius: 10px;
+  box-shadow: 10px;
+}
 
-      }
+  #generateButton{
+  border-radius: 10px;
+  margin-left: 10px;
+  height: 50px;
+  width: 180px;
+  color: white;
+  background-color: #5A087F;
+  border-color: white;
+  font-size: 16px;
+  padding-right: 10px;
+  box-shadow: 10px;
+}
 
-      #generateButton{
-        border-radius: 10px;
-        margin-left: 10px;
-        height: 50px;
-        width: 180px;
-        color: white;
-        background-color: #5A087F;
-        border-color: white;
-        font-size: 16px;
-        padding-right: 10px;
-        box-shadow: 10px;
-      }
-
-      .Jesse{
-        float: right;
-        padding: 20px;
-        height: 400px;
-      }
+  .Jesse{
+  float: right;
+  padding: 20px;
+  height: 400px;
+}
