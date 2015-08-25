@@ -1,6 +1,7 @@
 var counter = 0;
 
 var DonutMaster = function(){
+this.picArray = ['#topPot','#downtown','#capitalhill','#southlakeunion','#wedgewood','#ballard'];
 this.donutShopLocations = [];
 this.donutShopNames = ['Downtown', 'CapitalHill', 'SouthLakeUnion', 'Wedgewood', 'Ballard'];
 
@@ -21,6 +22,53 @@ this.generateList = function(){
   }
 }
 
+this.search = function(){
+  var x = document.getElementById('searchBox').selectedIndex;
+  var shopNameValue = document.getElementsByTagName('option')[x].value;
+
+  for ( var i = 0; i < this.donutShopLocations.length; i++){
+    if (shopNameValue == this.donutShopNames[i]){
+        var table = document.getElementById('myTable');
+        var row = table.insertRow(1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
+        var cell6 = row.insertCell(5);
+
+        cell1.innerHTML = this.donutShopNames[i];
+        cell2.innerHTML = this.donutShopLocations[i].minCustPerHour;
+        cell3.innerHTML = this.donutShopLocations[i].maxCustPerHour;
+        cell4.innerHTML = this.donutShopLocations[i].averageDonutsPerCust;
+        cell5.innerHTML = this.donutShopLocations[i].getDonutsPerHour();
+        cell6.innerHTML = this.donutShopLocations[i].getDonutsPerDay();
+      }
+    }
+    switch (shopNameValue) {
+    case 'Downtown':
+        document.getElementById('yelp').src = "http://www.yelp.com/biz/top-pot-doughnuts-seattle-12";
+        break;
+    case 'CapitalHill':
+        document.getElementById('yelp').src = "http://www.yelp.com/biz/top-pot-doughnuts-seattle-2";
+        break;
+    case 'SouthLakeUnion':
+        document.getElementById('yelp').src = "http://www.yelp.com/biz/top-pot-doughnuts-seattle-10";
+        break;
+    case 'Wedgewood':
+        document.getElementById('yelp').src = "http://www.yelp.com/biz/top-pot-doughnuts-seattle-3";
+        break;
+    case 'Ballard':
+        document.getElementById('yelp').src = "http://www.yelp.com/biz/top-pot-doughnuts-seattle-8";
+        break;
+    default:
+        alert("Sorry I either can't find the URL or we are having internet issues");
+      }
+    $('#yelp').fadeIn(3000,function(){
+
+    });
+  }
+
 this.makeBigList = function(){
   for (var i = 0; i < this.donutShopLocations.length; i++){
     var table = document.getElementById('myTable');
@@ -38,36 +86,35 @@ this.makeBigList = function(){
     cell4.innerHTML = this.donutShopLocations[i].averageDonutsPerCust;
     cell5.innerHTML = this.donutShopLocations[i].getDonutsPerHour();
     cell6.innerHTML = this.donutShopLocations[i].getDonutsPerDay();
+    }
   }
-  counter++;
-}
 };
 
 var DonutShop = function(minCustPerHour, maxCustPerHour, averageDonutsPerCust){
-this.minCustPerHour = minCustPerHour;
-this.maxCustPerHour = maxCustPerHour;
-this.averageDonutsPerCust = averageDonutsPerCust;
-this.hoursOpen = 12;
+  this.minCustPerHour = minCustPerHour;
+  this.maxCustPerHour = maxCustPerHour;
+  this.averageDonutsPerCust = averageDonutsPerCust;
+  this.hoursOpen = 12;
 
-this.getDonutsPerHour = function(minCustPerHour,maxCustPerHour,averageDonutsPerCust){
-  var averageCustomersPerHour = Math.floor(Math.random() * (this.maxCustPerHour - this.minCustPerHour + 1)) + this.minCustPerHour;
+  this.getDonutsPerHour = function(minCustPerHour,maxCustPerHour,averageDonutsPerCust){
+    var averageCustomersPerHour = Math.floor(Math.random() * (this.maxCustPerHour - this.minCustPerHour + 1)) + this.minCustPerHour;
 
-  var averageDonutsAHour = averageCustomersPerHour * this.averageDonutsPerCust;
+    var averageDonutsAHour = averageCustomersPerHour * this.averageDonutsPerCust;
 
-  console.log('Average amount of donuts in an hour: ' + averageDonutsAHour);
+    console.log('Average amount of donuts in an hour: ' + averageDonutsAHour);
 
-  return averageDonutsAHour;
-}
+    return averageDonutsAHour;
+  }
 
-this.getDonutsPerDay = function(minCustPerHour,maxCustPerHour,averageDonutsPerCust){
-  var averageCustomersPerHour = Math.floor(Math.random() * (this.maxCustPerHour - this.minCustPerHour + 1)) + this.minCustPerHour;
+  this.getDonutsPerDay = function(minCustPerHour,maxCustPerHour,averageDonutsPerCust){
+    var averageCustomersPerHour = Math.floor(Math.random() * (this.maxCustPerHour - this.minCustPerHour + 1)) + this.minCustPerHour;
 
-  var averageDonutsADay = (averageCustomersPerHour * this.averageDonutsPerCust) * this.hoursOpen;
+    var averageDonutsADay = (averageCustomersPerHour * this.averageDonutsPerCust) * this.hoursOpen;
 
-  console.log('Average donuts needed a day: ' + averageDonutsADay);
+    console.log('Average donuts needed a day: ' + averageDonutsADay);
 
-  return averageDonutsADay;
-}
+    return averageDonutsADay;
+  }
 };
 
 var downtown = new DonutShop(8, 43, 4.5);
@@ -130,19 +177,35 @@ var CreateList = function(){
 };
 
 function calculateAndAdd(){
-  if (document.getElementById('newLocationName').value == ""){
-    alert('Please fill in the text boxes');
-  }else{
-    var myshop = new CreateList();
-    myshop.createNewLine();
-    myshop.eraseFields();
-  }
+  $('section').fadeIn(4000, function(){
+    if (document.getElementById('newLocationName').value == ""){
+      alert('Please fill in the text boxes');
+    }else{
+      var myshop = new CreateList();
+      myshop.createNewLine();
+      myshop.eraseFields();
+    }
+  });
 }
 
 function generateListInHtml(){
-  if (counter !== 1){
-    topPot.makeBigList();
-  }else{
-    alert("You've already generated a list no need to do it again.");
-  }
+  $('section').fadeIn(4000, function(){
+      topPot.makeBigList();
+  });
+}
+
+function searchArray(){
+  $('section').fadeIn(4000, function(){
+    topPot.search();
+  });
+}
+
+function clearList(){
+  counter++;
+  $( "section" ).toggle( "slide");
+    if (counter % 2 === 0){
+      document.getElementById('clearButton').value = 'Close List';
+    }else{
+      document.getElementById('clearButton').value = 'Open List';
+    }
 }

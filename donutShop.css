@@ -40,15 +40,40 @@ nav {
   padding:20px;
 }
 
+img {
+  float: right;
+  padding: 20px;
+  height: 400px;
+}
+
 section {
+  margin-left: 160px;
+  text-align: center;
+  display: none;
   background-color: white;
   border-radius: 15px;
   padding: 20px;
   width: 1050px;
 }
 
+li {
+  display:inline-block;
+}
+
 #addButton {
-  margin-right: 20px;
+  margin-right: 10px;
+  height: 50px;
+  width: 180px;
+  color: white;
+  background-color: #5A087F;
+  border-color: white;
+  font-size: 16px;
+  border-radius: 10px;
+  box-shadow: 10px;
+}
+
+#generateButton {
+  border-radius: 10px;
   height: 50px;
   width: 180px;
   color: white;
@@ -56,11 +81,10 @@ section {
   border-color: white;
   font-size: 16px;
   padding-right: 10px;
-  border-radius: 10px;
   box-shadow: 10px;
 }
 
-#generateButton {
+#clearButton {
   border-radius: 10px;
   margin-left: 10px;
   height: 50px;
@@ -73,8 +97,61 @@ section {
   box-shadow: 10px;
 }
 
-.Jesse {
+#searchButton {
+  border-radius: 10px;
+  margin-left: 10px;
+  height: 30px;
+  width: 180px;
+  color: white;
+  background-color: #5A087F;
+  border-color: white;
+  font-size: 16px;
+  padding-right: 10px;
+  box-shadow: 10px;
+}
+
+#Jesse {
   float: right;
   padding: 20px;
   height: 400px;
+}
+
+#downtown {
+  display: none;
+  padding: 20px;
+  height: 400px;
+}
+
+#capitalhill {
+  display: none;
+  padding: 20px;
+  height: 400px;
+}
+
+#southlakeunion {
+  display: none;
+  padding: 20px;
+  height: 400px;
+}
+
+#wedgewood {
+  display: none;
+  padding: 20px;
+  height: 400px;
+}
+
+#ballard {
+  display: none;
+  padding: 20px;
+  height: 400px;
+}
+
+#searchBox {
+  height: 20px;
+  width: 300px;
+}
+
+iframe {
+  margin:40px;
+  display: none;
 }
