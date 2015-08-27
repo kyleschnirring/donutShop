@@ -28,6 +28,10 @@ p {
   color: white;
 }
 
+#erase{
+  color: gray;
+}
+
 aside {
   float: left;
   background-color: #EF0337;
@@ -46,7 +50,7 @@ img {
   height: 400px;
 }
 
-section {
+section{
   margin-left: 160px;
   text-align: center;
   display: none;
@@ -154,4 +158,8 @@ li {
 iframe {
   margin:40px;
   display: none;
+}
+
+#clickableP{
+  color:gray;
 }

@@ -67,6 +67,7 @@ this.search = function(){
     $('#yelp').fadeIn(3000,function(){
 
     });
+    $('tr').addClass('places');
   }
 
 this.makeBigList = function(){
@@ -87,6 +88,7 @@ this.makeBigList = function(){
     cell5.innerHTML = this.donutShopLocations[i].getDonutsPerHour();
     cell6.innerHTML = this.donutShopLocations[i].getDonutsPerDay();
     }
+    $('tr').addClass('places');
   }
 };
 
@@ -157,6 +159,8 @@ var CreateList = function(){
     cell4.innerHTML = this.averageDonutsPerCust;
     cell5.innerHTML = this.donutsAnHour;
     cell6.innerHTML = this.donutsADay;
+
+    $('tr').addClass('places');
   }
   /* I have no idea what I was doing with this but it might be important
   this.addInfo = function(elName, donutsAnHour, donutsADay){
@@ -208,4 +212,25 @@ function clearList(){
     }else{
       document.getElementById('clearButton').value = 'Open List';
     }
+  }
+
+function fadeFrame(){
+  console.log('hello');
+  $('#yelp').fadeOut();
 }
+
+function unfadeFrame(){
+  $('#yelp').fadeIn();
+}
+//added to erase tr's
+$('#myTable').on('click','.places',function() {
+  $(this).hide();
+});
+
+//blur iframe
+var web = document.getElementById('myTable');
+if(web){
+  document.getElementById('yelp').addEventListener('mouseout',fadeFrame);
+  document.getElementById('clickableP').addEventListener('click', unfadeFrame);
+}
+
